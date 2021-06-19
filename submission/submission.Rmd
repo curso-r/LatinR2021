@@ -1,0 +1,88 @@
+---
+type: oral   # List of types is available using latinr_types()
+language: english
+title: "Scaling feedback using learnr and gradethis in a introductory R course"
+authors:
+  - first_name: Beatriz
+    last_name: Milz
+    email: milz.bea@gmail.com  # One author's email has to match the email registered in EasyChair.
+    country: br  # List of countries available using latinr::latinr_countries()
+    affiliation: "Institute of Energy and Environment - University of São Paulo"
+    url: "google.com"  # Optional 
+    corresponding: true
+  - first_name: Fernando 
+    last_name: Correa
+    email: fcorrea@curso-r.com
+    country: br
+    affiliation: ["..."]
+    corresponding: false
+keywords: 
+  - "Online courses"
+  - "Formative assessment"
+  - "Feedback"
+# abstract: |
+#   Abstract goes here!
+bibliography: [bibliography.bib, packages_edited.bib]
+biblio-style: apalike-es   
+output: 
+    latinr::latinr_article:
+      keep_tex: false
+      anonymise: true
+params: 
+  check_is_error: FALSE
+---
+
+```{r submission-checks, echo=FALSE, warning=TRUE}
+# Runs some basic checks in metadata. To disable, set check_is_error to FALSE
+latinr::latinr_checks(rmarkdown::metadata, params$check_is_error)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Several learning activities that were performed in person had to be changed to an online approach due to the COVID-19 pandemic. Several people that otherwise could not attend an in-person activity were able to participate in the online activities. The increasing number of participants presents challenges, and the one that we approach here is correcting and giving feedback on the homework of students in R courses. 
+
+Correcting and giving feedback at homework manually usually is a time-consuming activity, and can be difficult to give timely feedback. Mine Cetinkaya-Rundel gave a talk at RStudio Global Conference 2021, in which she presented an approach for giving feedback at scale that is meaningful and timely [@cetinkaya-rundelFeedbackScale2021]. We tried this approach in an introduction to programming with R in a class with 50 students, and here we present the main strengths and challenges we faced so far.
+
+In this course, after each class we made available homework that was developed in order to be a formative assessment, reviewing and evaluating whether the students could answer correctly the exercises related to the class, in order to evaluate if the content that was presented in class was understood by the students. 
+
+We structured the exercises in the homework using the package `{learnr}` [@R-learnr], which makes it possible to create interactive tutorials using R Markdown documents [@R-rmarkdown], and the tutorials resulted are Shiny Apps [@R-shiny].
+The package `{gradethis}` [@R-gradethis] was designed to be used in learnr tutorials, and was used to incorporate exercise feedback. The package `{learnrhash}` [@R-learnrhash] was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, we added a Google Forms so each student could send information such as their names, emails, and the hash code created by `{learnrhash}` [@R-learnrhash].
+
+Using the package `{googlesheets4}` [@R-googlesheets4], we were able to import the answers sent in the Google Forms by the students. We developed a reproducible report to present the results of the homework, using `R Markdown` [@R-rmarkdown] and the package `{pagedown}` [@R-pagedown]. Some of the information presented in the report was the percentage of students in the class that submitted their answers in the Google Forms and the percentage of students that answered each exercise correctly. This report was designed to be used only by the instructors of the course.
+
+We asked the students to do the exercises before the next class, so the instructors could review the report and identify concepts that needed to be revised in class. At the beginning of each class, we review the concepts that we identified using the reproducible report, and we also solved the exercises in order to explain and answer any questions left.
+
+Distributing the learnr tutorials at scale can be a challenge, so we provide three options for the students:
+
+1. An R package to store the learnr tutorials, available on GitHub (https://github.com/);
+
+2. A project in RStudio Cloud (https://rstudio.cloud/), with the package installed, so students could make a copy of the project and use it;
+
+3. A deployed version in *Shinyapps.io* (https://www.shinyapps.io/) using a Starter Plan (which costs $9.00 per month + taxes).
+
+Some of the strengths that we found using this approach are:
+
+1. We have data that can be used to create reports about the results of the homework, which can help to identify gaps in topics to be reviewed.
+
+2. Although we spend some time before the course started adapting the exercises from `.R` files to structured exercises in a learnr interactive tutorial, during the course we did not spend time correcting and giving feedback on the homework for each student.
+
+3. We chose to create hints in the exercises, but did not show the solutions within the learnr tutorial. The students reacted positively to the possibility to see the hints, which was not possible to create when we used the .`R` files for the homework.
+
+We also faced some challenges that we are still working on improving:
+
+1. Some of the students faced encoding errors when they used the tutorials directly in their RStudio sessions, installing the package from GitHub.
+
+2. Considering that is an introductory course, some of the students faced difficulties installing the package from GitHub. We had to help each one of them to install the package, using the share screen feature from Zoom, and talking through the installation problems.
+
+3. The packages `{learnr}` [@R-learnr], `{gradethis}` [@R-gradethis] and `{learnrhash}` [@R-learnrhash] were designed in English, and all the messages, buttons, and other words that appear are in English. The maintainers of the package `{learnr}` [@R-learnr] are making great efforts to support additional languages in the tutorials, and part of the interface already has support for it. Considering that this course is in Brazilian Portuguese, and the package `{gradethis}` [@R-gradethis] is still only in English, we made a fork of the package and translated the internal messages to Brazilian Portuguese, called `{gradethisBR}`.
+
+We know that there is still a lot of work to do to improve the support of additional languages in the learnr tutorials using this approach, but this is important in order to facilitate to more instructors to use learnr in their courses and classes in the future, in languages that are not English.  We understand that `{gradethisBR}` is a temporary package and will be better if this feature is native in `{gradethis}`, so we want to help improve `{gradethis}` to support additional languages as well, so it can be used in courses in Brazilian Portuguese, Spanish, and other languages.
+
+
+## References
+
+```{r, include=FALSE}
+# knitr::write_bib(c("learnr", "learnrhash", "gradethis", "googlesheets4", "rmarkdown", "pagedown" , "shiny", "CursoRTarefas"), 'packages.bib')
+```
