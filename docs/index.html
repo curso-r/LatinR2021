@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Scaling feedback using learnr and gradethis   in a introductory R course</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom-intro.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Scaling feedback using learnr and gradethis <br> in a introductory R course
+## LatinR 2021
+### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>
+### October 2021
+
+---
+
+
+
+
+
+.pull-left[
+## &lt;a href='https://curso-r.com'&gt; Fernando Correa 📌&lt;/a&gt;
+
+&lt;img src="img/fernando.webp" width="30%" style="display: block; margin: auto;" /&gt;
+
+
+Master student at the Institute of Mathematics and Statistics - University of São Paulo. 
+
+Teacher at [Curso-R](https://curso-r.com/).
+
+
+]
+
+.pull-right[
+## &lt;a href='https://linktr.ee/beamilz'&gt; Beatriz Milz    📌&lt;/a&gt;
+
+&lt;img src="img/bea.jpg" width="30%" style="display: block; margin: auto;" /&gt;
+
+PhD Candidate in Environmental Siences - Institute of Energy and Environment - University of São Paulo. 
+
+[R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/) Co-organizer. [Certified tidyverse instructor by RStudio](https://education.rstudio.com/trainers/people/milz+beatriz/).
+Teacher at [Curso-R](https://curso-r.com/).
+
+]
+
+---
+## Acknowledgments
+
+- Mine
+
+- Colin
+
+- Garrick + RStudio + Learnr team
+
+
+---
+
+## tweets
+
+https://twitter.com/yabellini/status/1350548258620370947
+---
+
+Several learning activities that were performed in person had to be changed into an online approach due to the COVID-19 pandemic. Several people that otherwise could not attend an in-person activity were able to join in the online activities. The increasing number of participants presents challenges, and the one we approach in this article is checking and giving feedback to homework assignments in R courses.
+
+
+---
+
+Checking and giving feedback to homework assignments usually are time-consuming activities, and as such, they might make it harder to give timely feedback. Mine Cetinkaya-Rundel gave a talk at the RStudio Global Conference 2021, in which she presented an approach for giving feedback at scale that is both meaningful and timely [@cetinkaya-rundelFeedbackScale2021]. We tried this approach in an introduction to programming with R class with 50 students, and here we present the main strengths and challenges we have faced so far.
+
+---
+ 
+In this course, we adopted interactive online homework assignments to provide formative assessment after each class. The process of reviewing and evaluating whether the students could answer the exercises correctly enabled instructors and students to qualify the understanding of contents discussed in class. Feedbacks and answers were steadily available while students answered to the assignments.
+ 
+---
+We structured our homework assignments using a blend of R packages to enable interactivity, steadily available feedbacks, and scalable review of several assignments. For the interactivity part, we used the package {learnr} [@R-learnr], a tool that enables the creation of interactive tutorials by using R Markdown documents [@R-rmarkdown] and Shiny Apps [@R-shiny].
+The package {gradethis} [@R-gradethis] was designed to be used in {learnr} tutorials and was used to incorporate steadily available exercise feedback. The package {learnrhash} [@R-learnrhash] was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, each student could send information such as their names, emails, and the hash code created by {learnrhash} [@R-learnrhash] through Google Forms.
+
+---
+
+By using the package {googlesheets4} [@R-googlesheets4], we were able to import the answers sent by the students through Google Forms. We developed a reproducible report to present the results of homework assignments using R Markdown [@R-rmarkdown] and the package {pagedown} [@R-pagedown]. Two examples of the information presented in the report were the percentage of students that submitted their answers through Google Forms and the percentage of students that answered to each exercise correctly. This report was designed to be used only by the instructors of the course.
+ 
+We asked the students to answer the homework assignments before the following class, so the instructors could review the report and identify concepts that should be revised in class. At the beginning of each class, we reviewed the concepts that we identified when using the reproducible report, and we also solved the exercises in order to explain and answer any questions left.
+ 
+---
+Distributing the learnr tutorials at scale can be a challenge, so we provided three options for the students:
+ 
+1. An R package to store the learnr tutorials, available on GitHub (https://github.com/);
+ 
+2. A project in RStudio Cloud (https://rstudio.cloud/), with the package installed, so students could make a copy of the project and use it;
+ 
+3. A deployed version in *Shinyapps.io* (https://www.shinyapps.io/) using a Starter Plan (which costs $9.00 per month + taxes).
+ 
+---
+Some of the strengths that we found while using this approach are:
+ 
+1. We have data that can help identifying the misunderstanding gaps that should be clarified or filled through revision of contents.
+ 
+2. Although we spend some time before the course adapting the exercises from .R files to structured exercises in a learnr interactive tutorial, during the course we did not spend time correcting and giving feedback on the homework for each student.
+ 
+3. We chose to create hints in the exercises, but did not show the solutions within the learnr tutorial. The students reacted positively to the possibility to see the hints, which were not possible to create when we used the .R files for the homework.
+
+
+---
+We also faced some challenges that we are still working on improving:
+ 
+1. Some of the students faced encoding errors when they used the tutorials directly in their RStudio sessions, when installing the package from GitHub.
+ 
+2. Considering that it is an introductory course, some of the students faced difficulties installing the package from GitHub. We had to help each one of them to install it by using Zoom share screen feature, and talking through the installation problems.
+ 
+3. A {learnr} interactive document is not the same environment in which usual R programming happens, such as an IDE like RStudio or VSCode, and some learners might have a hard time understanding how they are related. Learners who can correctly answer homework assignments might not realize how to apply their knowledge on longer codes, such as R scripts.
+ 
+4. The packages {learnr} [@R-learnr], {gradethis} [@R-gradethis] and {learnrhash} [@R-learnrhash] were designed in English; therefore, all the messages, buttons, and other words are written in English. The maintainers of the package {learnr} [@R-learnr] are making great efforts to support additional languages in the tutorials, and part of the interface already has support for it. Considering that this course is taught in Brazilian Portuguese, and the package {gradethis} [@R-gradethis] is still only available in English, we made a fork of the package and translated the internal messages into Brazilian Portuguese, called {gradethisBR}.
+ 
+--- 
+We are aware of the remaining work to do in order to improve the support of additional languages in the learnr tutorials that use this approach. However, this is important to facilitate the use of learnr by more non-English speakers in forthcoming courses and classes. We understand that {gradethisBR} is a temporary package and will be better if this feature is native in {gradethis}. Thus, we want to help improving {gradethis} to support additional languages as well, such as Brazilian Portuguese, Spanish, German and others.
+
+
+---
+class: center
+
+## Thanks :)
+
+.pull-left[
+&lt;img src="https://media.giphy.com/media/M9NbzZjAcxq9jS9LZJ/giphy.gif" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+
+
+]
+ 
+&lt;!-- inicio font awesome --&gt;
+&lt;script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+
+&lt;!-- final font awesome --&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<a href='http://www.curso-r.com'>Curso-R</a> - %current%/%total%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
