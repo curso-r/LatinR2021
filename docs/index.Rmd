@@ -93,15 +93,16 @@ knitr::include_graphics("img/produtos.png")
 
 ---
 
+## Introduction
 
+- In person courses:
+  - March 2020 - had to be changed into an online approach due to the COVID-19 pandemic. 
+  
+  - Increasing number of participants.
 
-Several learning activities that were performed in person had to be changed into an online approach due to the COVID-19 pandemic. Several people that otherwise could not attend an in-person activity were able to join in the online activities. 
-
-- The increasing number of participants presents challenges
-
-- Checking and giving feedback to homework assignments in R courses:
-  - time-consuming
-  - might make it harder to give timely feedback.
+- Homework assignments:
+  - Time-consuming to check and give feedback 
+  - It's hard to give timely feedback.
   
   
 ???
@@ -139,15 +140,30 @@ knitr::include_graphics("img/tweet1-answer.png")
 
 ---
 
-Mine Cetinkaya-Rundel gave a talk at the RStudio Global Conference 2021, in which she presented an approach for giving feedback at scale that is both meaningful and timely [@cetinkaya-rundelFeedbackScale2021].
+## Mine's talk
+
+[Mine Çetinkaya-Rundel](https://twitter.com/minebocek) gave a talk at the [RStudio Global Conference 2021](https://www.rstudio.com/resources/rstudioglobal-2021/), in which she presented an approach for giving feedback at scale that is both meaningful and timely.
 
 
-https://www.rstudio.com/resources/rstudioglobal-2021/feedback-at-scale/
+<a href='https://www.rstudio.com/resources/rstudioglobal-2021/feedback-at-scale/'>
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("img/mine-talk.png")
+```
+</a>
+
 
 
 ---
 
- We tried this approach in an introduction to programming with R class with 50 students, and here we present the main strengths and challenges we have faced so far.
+## Our objectives
+
+- We tried the approach presented in [Mine](https://twitter.com/minebocek)'s talk 
+
+  - **Introduction to programming with R** course
+
+  - June/2021 ~ 55 students; Set/2021 ~ 45 students
+
+- Here we present the main strengths and challenges we have faced so far.
 
 ---
  
