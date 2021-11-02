@@ -61,15 +61,31 @@ Teacher at [Curso-R](https://curso-r.com/).
 ]
 
 ---
-class: middle, center
+
 
 # Curso-R
+
+.pull-left[
+
+- [+ 15 R courses](https://curso-r.com/)
+
+- [Blog (since 2017)](https://blog.curso-r.com/)
+
+- [Discourse](https://discourse.curso-r.com/)
+
+- [Free, online and open materials](https://curso-r.com/material/)
+
+- [R packages](https://curso-r.com/produtos/):
+]
 
 
 .pull-right[
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("img/produtos.png")
 ```
+
+
+
 ]
 
 
@@ -86,6 +102,16 @@ Several learning activities that were performed in person had to be changed into
 - Checking and giving feedback to homework assignments in R courses:
   - time-consuming
   - might make it harder to give timely feedback.
+  
+  
+???
+Several learning activities that were performed in person had to be changed into an online approach due to the COVID-19 pandemic. Several people that otherwise could not attend an in-person activity were able to join in the online activities. 
+
+
+The increasing number of participants presents challenges, and the one we approach in this article is checking and giving feedback to homework assignments in R courses.
+
+
+Checking and giving feedback to homework assignments usually are time-consuming activities, and as such, they might make it harder to give timely feedback.  
 
 
 ---
