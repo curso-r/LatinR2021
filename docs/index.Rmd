@@ -2,7 +2,7 @@
 title: "Scaling feedback using learnr and gradethis <br> in a introductory R course"
 subtitle: "LatinR 2021"
 author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>"
-date: "`r paste(lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'en_US.UTF-8'), lubridate::year(Sys.Date()))`"
+date: "`r paste(lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE), lubridate::year(Sys.Date()))`"
 output:
   xaringan::moon_reader:
     css: ["default", "default-fonts", "css/custom-intro.css"]
@@ -60,11 +60,6 @@ Teacher at [Curso-R](https://curso-r.com/).
 
 ]
 
-
-
-
-
-
 ---
 
 Several learning activities that were performed in person had to be changed into an online approach due to the COVID-19 pandemic. Several people that otherwise could not attend an in-person activity were able to join in the online activities. 
@@ -118,6 +113,7 @@ https://www.rstudio.com/resources/rstudioglobal-2021/feedback-at-scale/
 In this course, we adopted interactive online homework assignments to provide formative assessment after each class. The process of reviewing and evaluating whether the students could answer the exercises correctly enabled instructors and students to qualify the understanding of contents discussed in class. Feedbacks and answers were steadily available while students answered to the assignments.
  
 ---
+
 We structured our homework assignments using a blend of R packages to enable interactivity, steadily available feedbacks, and scalable review of several assignments. For the interactivity part, we used the package {learnr} [@R-learnr], a tool that enables the creation of interactive tutorials by using R Markdown documents [@R-rmarkdown] and Shiny Apps [@R-shiny].
 The package {gradethis} [@R-gradethis] was designed to be used in {learnr} tutorials and was used to incorporate steadily available exercise feedback. The package {learnrhash} [@R-learnrhash] was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, each student could send information such as their names, emails, and the hash code created by {learnrhash} [@R-learnrhash] through Google Forms.
 
@@ -139,14 +135,19 @@ Distributing the learnr tutorials at scale can be a challenge, so we provided th
 
 
 ---
-## Como compartilhar um tutorial learnr? 👩‍🏫
+## How to share a learnr document? 👩‍🏫
 
 
-|Forma|Exemplo|Vantagens| Desvantagens|
+|Method|Example|Pros|Cons|
 |---------|---------|---------|-------------|
-|Fazendo o deploy do Shiny App|[shinyapps.io](https://www.shinyapps.io/)| 👩‍🎓1. Muito mais fácil para quem está aprendendo:  A pessoa aluna não precisa ter o R e o RStudio instalado para conseguir usar o tutorial <br> 👩‍🏫 2. Estudantes felizes, professoras felizes | 👩‍🎓 1. Precisa de acesso à internet <br> 👩‍🏫 2. A ferramenta gratuita tem limitação, dependendo da quantidade de pessoas alunas, será necessário pagar para que o serviço seja oferecido sem travamentos. |
-|Adicionando em um pacote em R 📦|[CursoRTarefas](https://github.com/curso-r/CursoRTarefas) | 👩‍🎓1. Não precisa de acesso à internet <br> 👩‍🏫 2. Totalmente gratuito | 👩‍🎓1. Precisa ter o R e o RStudio instalados <br> 👩‍🏫 2. Precisa saber sobre Git, GitHub, Pacotes em R... <br> 3. **Possíveis problemas de encoding!** |
+|shinyapps.io|[shinyapps.io](https://www.shinyapps.io/)| 👩‍🎓1. Easier for newcomers: Learners don't need an installation of R and RStudio <br> 👩‍🏫 2. Straightforward deploy and user experience | 👩‍🎓 1. Require internet access <br> 👩‍🏫 2. Free tier has a limit of 80 hours/month. |
 
+---
+## How to share a learnr document? 👩‍🏫
+
+|Method|Example|Pros|Cons|
+|---------|---------|---------|-------------|
+|R packages 📦|[CursoRTarefas](https://github.com/curso-r/CursoRTarefas) | 👩‍🎓1. Don't require internet access. <br> 👩‍🏫 2. Free. | 👩‍🎓1. Require an installation of R and RStudio; <br> 👩‍🏫 2. Learners must install an package from a remote source (e.g. github). <br> 3. **Documents are prone to encoding issues!** |
  
 ---
 Some of the strengths that we found while using this approach are:
@@ -159,56 +160,61 @@ Some of the strengths that we found while using this approach are:
 
 
 ---
+## Challenges
+
 We also faced some challenges that we are still working on improving:
  
-1. Some of the students faced encoding errors when they used the tutorials directly in their RStudio sessions, when installing the package from GitHub.
+- Some of the students faced encoding errors when they used the tutorials directly in their RStudio sessions, when installing the package from GitHub.
  
-2. Considering that it is an introductory course, some of the students faced difficulties installing the package from GitHub. We had to help each one of them to install it by using Zoom share screen feature, and talking through the installation problems.
- 
-3. A {learnr} interactive document is not the same environment in which usual R programming happens, such as an IDE like RStudio or VSCode, and some learners might have a hard time understanding how they are related. Learners who can correctly answer homework assignments might not realize how to apply their knowledge on longer codes, such as R scripts.
- 
-4. The packages {learnr} [@R-learnr], {gradethis} [@R-gradethis] and {learnrhash} [@R-learnrhash] were designed in English; therefore, all the messages, buttons, and other words are written in English. The maintainers of the package {learnr} [@R-learnr] are making great efforts to support additional languages in the tutorials, and part of the interface already has support for it. Considering that this course is taught in Brazilian Portuguese, and the package {gradethis} [@R-gradethis] is still only available in English, we made a fork of the package and translated the internal messages into Brazilian Portuguese, called {gradethisBR}.
+- Considering that it is an introductory course, some of the students faced difficulties installing the package from GitHub. We had to help each one of them to install it by using Zoom share screen feature, and talking through the installation problems.
 
+---
+## Challenges
+
+We also faced some challenges that we are still working on improving:
+
+- A {learnr} interactive document is not the same environment in which usual R programming happens, such as an IDE like RStudio or VSCode, and some learners might have a hard time understanding how they are related. Learners who can correctly answer homework assignments might not realize how to apply their knowledge on longer codes, such as R scripts.
+ 
+- The packages {learnr} [@R-learnr], {gradethis} [@R-gradethis] and {learnrhash} [@R-learnrhash] were designed in English; therefore, all the messages, buttons, and other words are written in English. The maintainers of the package {learnr} [@R-learnr] are making great efforts to support additional languages in the tutorials, and part of the interface already has support for it. Considering that this course is taught in Brazilian Portuguese, and the package {gradethis} [@R-gradethis] is still only available in English, we made a fork of the package and translated the internal messages into Brazilian Portuguese, called {gradethisBR}.
 
 ---
 ## learnrverse
 
-- Nenhum dos pacotes está no CRAN por enquanto!
+- Not on CRAN yet.
 
 
-- Pacote [gradethis](https://github.com/rstudio/gradethis), mantido pela RStudio - [Documentação](https://pkgs.rstudio.com/gradethis/)
+- [gradethis](https://github.com/rstudio/gradethis) package by RStudio - [Documentação](https://pkgs.rstudio.com/gradethis/)
 
-- Pacote [learnrhash](https://github.com/rundel/learnrhash), por Colin Rundel [![](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+- [learnrhash](https://github.com/rundel/learnrhash) package by Colin Rundel [![](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 --
 
-### Fluxo com learnrverse:
+### learnrverse workflow:
 
-- Criar um tutorial com `learnr`
-- `gradethis` ajuda com a avaliação dos exercícios
-- `learnrhash` ajuda comprimindo as respostas em um texto hash
-- Google formulários para coletar as respostas
-- `googlesheets4` para importar as respostas para o R 
-- Relatório final em RMarkdown: ajuda a identificar quais temas precisam ser revisados.
-
+1. Create a `learnr` tutorial;
+1. Configure `gradethis` for exercise feedbacks; 
+1. `learnrhash` comprimes the results to a portable format text format (a hash);
+1. Collect hashes of through a google forms;
+1. Import anwers to R by using `googlesheets4` and converting `learnrhases`'s hashes to R lists; 
+1. Analyse data and visualize results!
 
 ---
-## learnr em português?
+## learnr translations?
 
-- Botões e mensagens básicas do learnr ✅-  [Contribuição](https://github.com/rstudio/learnr/pull/488)
-
-
-
-- Mensagens de encoragamento e elogios 🍪 ✅  - [Sugestão](https://github.com/rstudio/learnr/issues/534) e  [contribuição](https://github.com/rstudio/learnr/pull/551)
+- Buttons an simple messages ✅-  [Contribuição](https://github.com/rstudio/learnr/pull/488)
 
 
-### Próximos passos:
 
-- Gradethis e learnrhash - ainda estão 100% em inglês
+- Praises and encouragements 🍪 ✅  - [Sugestão](https://github.com/rstudio/learnr/issues/534) e  [contribuição](https://github.com/rstudio/learnr/pull/551)
 
-### Solução temporária:
 
-Gradethis em Português: https://github.com/curso-r/gradethis (por [Fernando Corrêa](https://github.com/azeloc))
+### TO DO:
+
+- Gradethis and learnrhash are still 100% in english 
+
+### Initial attempt:
+
+Gradethis translation to PT-BR: https://github.com/curso-r/gradethis (por [Fernando Corrêa](https://github.com/azeloc))
 
 
 
