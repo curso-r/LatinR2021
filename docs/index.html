@@ -64,6 +64,10 @@ Teacher at [Curso-R](https://curso-r.com/).
 
 - [Free, online and open materials](https://curso-r.com/material/)
 
+- [Free online book on R and Data Science](https://livro.curso-r.com/)
+
+- [Youtube channel](https://www.youtube.com/c/CursoR6) (around 70 videos);
+
 - [R packages](https://curso-r.com/produtos/):
 ]
 
@@ -71,12 +75,7 @@ Teacher at [Curso-R](https://curso-r.com/).
 .pull-right[
 &lt;img src="img/produtos.png" width="80%" style="display: block; margin: auto;" /&gt;
 
-
-
 ]
-
-
-
 
 ---
 
@@ -194,8 +193,8 @@ In this course, we adopted interactive online homework assignments to provide fo
 
 ???
 
-We structured our homework assignments using a blend of R packages to enable interactivity, steadily available feedbacks, and scalable review of several assignments. For the interactivity part, we used the package {learnr} [@R-learnr], a tool that enables the creation of interactive tutorials by using R Markdown documents [@R-rmarkdown] and Shiny Apps [@R-shiny].
-The package {gradethis} [@R-gradethis] was designed to be used in {learnr} tutorials and was used to incorporate steadily available exercise feedback. The package {learnrhash} [@R-learnrhash] was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, each student could send information such as their names, emails, and the hash code created by {learnrhash} [@R-learnrhash] through Google Forms.
+We structured our homework assignments using a blend of R packages to enable interactivity, steadily available feedbacks, and scalable review of several assignments. For the interactivity part, we used the package learnr [All+21] , a tool that enables the creation of interactive tutorials by using R Markdown documents [Ade+21] and Shiny Apps [RC21].
+The package {gradethis} [Bry21] was designed to be used in {learnr} tutorials and was used to incorporate steadily available exercise feedback. The package {learnrhash} [Xie+21] was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, each student could send information such as their names, emails, and the hash code created by learnrhash through Google Forms.
 
 
 ---
@@ -228,11 +227,14 @@ class: middle, center
 
 &lt;img src="img/pdf-report.png" width="100%" style="display: block; margin: auto;" /&gt;
 
+
 ]
 
 ???
 
-By using the package [{googlesheets4}](https://googlesheets4.tidyverse.org/), we were able to import the answers sent by the students through Google Forms. We developed a reproducible report to present the results of homework assignments using R Markdown [@R-rmarkdown] and the package {pagedown} [@R-pagedown]. Two examples of the information presented in the report were the percentage of students that submitted their answers through Google Forms and the percentage of students that answered to each exercise correctly. This report was designed to be used only by the instructors of the course.
+
+By using the package {googlesheets4} [Sch+21], we were able to import the answers sent by the students through Google Forms. We developed a reproducible report to present the results of homework assignments using R Markdown and the package {pagedown} [Xie+21]. Two examples of the information presented in the report were the percentage of students that submitted their answers through Google Forms and the percentage of students that answered to each exercise correctly. This report was designed to be used only by the instructors of the course.
+
  
 We asked the students to answer the homework assignments before the following class, so the instructors could review the report and identify concepts that should be revised in class. At the beginning of each class, we reviewed the concepts that we identified when using the reproducible report, and we also solved the exercises in order to explain and answer any questions left.
 
@@ -347,7 +349,7 @@ The packages **learnr**, **gradethis** and **learnrhash** were designed in Engli
 
 - We understand that {gradethisBR} is a temporary package and will be better if this feature is native in {gradethis}. 
 
-- Thus, we want to help improving {gradethis} to support additional languages as well, such as Brazilian Portuguese, Spanish, German and others.
+- Thus, we want to help improving {gradethis} to support additional languages as well, such as Brazilian Portuguese, Spanish and others.
 
 ---
 
@@ -367,7 +369,7 @@ The packages **learnr**, **gradethis** and **learnrhash** were designed in Engli
 
 - [Mine Çetinkaya-Rundel](https://twitter.com/minebocek)
 
-- [Garrick](https://twitter.com/grrrck) + [RStudio](https://twitter.com/rstudio) + [LearnR team](https://github.com/rstudio/learnr/blob/main/DESCRIPTION)
+- [Garrick](https://twitter.com/grrrck) + [RStudio](https://twitter.com/rstudio) + [learnr team](https://github.com/rstudio/learnr/blob/main/DESCRIPTION)
 
 - [Yanina Bellini Saibene](https://twitter.com/yabellini)
 
@@ -396,6 +398,9 @@ Slides created via the R packages:
 The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 
 
+Twitter: [@BeaMilz](https://twitter.com/BeaMilz), [@Azeloc](https://twitter.com/Azeloc) and [@curso_r](https://twitter.com/curso_r)
+
+
 ]
  
 &lt;!-- inicio font awesome --&gt;
@@ -403,6 +408,36 @@ The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihu
 
 &lt;!-- final font awesome --&gt;
 
+
+---
+
+## References
+
+Aden-Buie, G., D. Chen, G. Grolemund, et al. (2021). _gradethis: Automated
+Feedback for Student Exercises in learnr Tutorials_.
+https://pkgs.rstudio.com/gradethis/, https://rstudio.github.io/learnr/.
+
+Allaire, J., Y. Xie, J. McPherson, et al. (2021). _rmarkdown: Dynamic
+Documents for R_. R package version 2.11. URL:
+[https://CRAN.R-project.org/package=rmarkdown](https://CRAN.R-project.org/package=rmarkdown).
+
+Bryan, J. (2021). _googlesheets4: Access Google Sheets using the Sheets API
+V4_. R package version 1.0.0. URL:
+[https://CRAN.R-project.org/package=googlesheets4](https://CRAN.R-project.org/package=googlesheets4).
+
+Rundel, C. and M. Cetinkaya-Rundel (2021). _learnrhash: Tools for hashing
+learnr sessions_. R package version 0.2.0.
+
+
+---
+## References
+
+Schloerke, B., J. Allaire, B. Borges, et al. (2021). _learnr: Interactive
+Tutorials for R_. https://rstudio.github.io/learnr/.
+
+Xie, Y., R. Lesur, B. Thorne, et al. (2021). _pagedown: Paginate the HTML
+Output of R Markdown with CSS for Print_. R package version 0.15. URL:
+[https://github.com/rstudio/pagedown](https://github.com/rstudio/pagedown).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
