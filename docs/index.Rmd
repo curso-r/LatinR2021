@@ -12,7 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      slideNumberFormat: "<a href='http://www.curso-r.com'>Curso-R</a> - %current%/%total%" 
+      slideNumberFormat: "<a href='https://curso-r.github.io/LatinR2021/'>curso-r.github.io/LatinR2021</a> - %current%/%total%" 
 ---
 
 
@@ -64,7 +64,7 @@ Teacher at [Curso-R](https://curso-r.com/).
 knitr::include_graphics("img/bea.jpg")
 ```
 
-PhD Candidate in Environmental Siences - Institute of Energy and Environment - University of São Paulo. 
+PhD Candidate in Environmental Sciences - Institute of Energy and Environment - University of São Paulo. 
 
 [R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/) Co-organizer. [Certified tidyverse instructor by RStudio](https://education.rstudio.com/trainers/people/milz+beatriz/).
 Teacher at [Curso-R](https://curso-r.com/).
@@ -73,10 +73,9 @@ Teacher at [Curso-R](https://curso-r.com/).
 
 ---
 
-
-# Curso-R
-
 .pull-left[
+
+## Curso-R
 
 - [+ 15 R courses](https://curso-r.com/)
 
@@ -90,11 +89,14 @@ Teacher at [Curso-R](https://curso-r.com/).
 
 - [Youtube channel](https://www.youtube.com/c/CursoR6) (around 70 videos);
 
-- [R packages](https://curso-r.com/produtos/):
+
 ]
 
 
 .pull-right[
+
+<br>
+- [R packages](https://curso-r.com/produtos/):
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("img/produtos.png")
 ```
@@ -134,25 +136,31 @@ In this course, we adopted interactive online homework assignments to provide fo
 
 ---
 
-## Package learnr (by RStudio)
+.pull-left[
+## Package learnr 
+
+- by RStudio
 
 <a href='https://rstudio.github.io/learnr/'>
-```{r echo=FALSE, out.width="60%"}
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/learnr.png")
 ```
 </a>
 
-- Enables the creation of interactive tutorials by using [R Markdown](https://rmarkdown.rstudio.com/) documents and [Shiny Apps](https://shiny.rstudio.com/)
----
+]
 
-## Package gradethis (also by RStudio)
+.pull-right[
+
+## Package gradethis 
+
+- also by RStudio
 
 <a href='https://pkgs.rstudio.com/gradethis/'>
-```{r echo=FALSE, out.width="80%"}
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/gradethis.png")
 ```
 </a>
-
+]
 
 ---
 
@@ -210,20 +218,47 @@ knitr::include_graphics("img/mine-talk.png")
 
   - June/2021 ~ 55 students; Set/2021 ~ 45 students
 
-- Here we present the main strengths and challenges we have faced so far.
 
 ---
 
 ## What tools did we use?
 
+.pull-left[
 - Created the interactive tutorials (the homework) with package [{learnr}](https://rstudio.github.io/learnr/).
 
 - Incorporating exercise feedback with the package [{gradethis}](https://pkgs.rstudio.com/gradethis/).
 
+]
+
+.pull-right[
+<a href='https://acursor.shinyapps.io/intro-programacao_1-introducao/'>
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/learnr-curso-r.png")
+```
+</a>
+
+]
+
+
+---
+
+## What tools did we use?
+
+.pull-left[
 - The package [{learnrhash}](https://github.com/rundel/learnrhash) was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises.
 
 
 - At the end of each homework, each student could send information such as their names, emails, and the hash code created by {learnrhash} through [Google Forms](https://www.google.com/intl/pt-BR/forms/about/).
+
+]
+
+.pull-right[
+<a href='https://acursor.shinyapps.io/intro-programacao_1-introducao/'>
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/hash-curso-r.png")
+```
+</a>
+]
 
 ???
 
@@ -231,29 +266,11 @@ We structured our homework assignments using a blend of R packages to enable int
 The package {gradethis} `r Citep(myBib, 1)` was designed to be used in {learnr} tutorials and was used to incorporate steadily available exercise feedback. The package {learnrhash} `r Citep(myBib, 5)` was used to generate a compressed text-based representation of the answers (called *hash*), that students could copy and paste to submit their answers to the exercises. At the end of each homework, each student could send information such as their names, emails, and the hash code created by learnrhash through Google Forms.
 
 
----
-class: middle, center
-
-<a href='https://acursor.shinyapps.io/intro-programacao_1-introducao/'>
-```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/learnr-curso-r.png")
-```
-</a>
-
----
-class: middle, center
-
-<a href='https://acursor.shinyapps.io/intro-programacao_1-introducao/'>
-```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/hash-curso-r.png")
-```
-</a>
-
 
 ---
 
 
-## What about reporting?
+## What tools did we use?
 
 .pull-left[
 - We use the package package [{googlesheets4}](https://googlesheets4.tidyverse.org/) to import the answers sent by the students through Google Forms.
@@ -281,45 +298,15 @@ We asked the students to answer the homework assignments before the following cl
 
 
 ---
-
-## Workflow:
-
-1. Create a `learnr` tutorial;
-1. Configure `gradethis` for exercise feedbacks; 
-1. `learnrhash` comprimes the results to a portable format text format (a hash);
-1. Collect hashes of through a google forms;
-1. Import anwers to R by using `googlesheets4` and converting `learnrhases`'s hashes to R lists; 
-1. Analyse data and results!
-1. Use the data to identify topics that needs to be reviewed in the class.
-
----
-
-## How can the students access the tutorials?
-
-Distributing the learnr tutorials at scale can be a challenge, so **initially** (June 2021) we provided three options for the students:
- 
-1. An R package to store the learnr tutorials, available on GitHub (https://github.com/);
- 
-2. A project in RStudio Cloud (https://rstudio.cloud/), with the package installed, so students could make a copy of the project and use it;
- 
-3. A deployed version in *Shinyapps.io* (https://www.shinyapps.io/) using a Starter Plan (which costs $9.00 per month + taxes).
-
-
-
----
 ## How can the students access the tutorials? 👩‍🏫
 
 
 |Method|Example|Pros|Cons|
 |---------|---------|---------|-------------|
-|shinyapps.io|[shinyapps.io](https://www.shinyapps.io/)| 👩‍🎓1. Easier for newcomers: Learners don't need an installation of R and RStudio <br> 👩‍🏫 2. Straightforward deploy and user experience | 👩‍🎓 1. Require internet access <br> 👩‍🏫 2. Free tier has a limit of 80 hours/month. |
+|shinyapps.io|[shinyapps.io](https://www.shinyapps.io/)|  👩‍🏫 1. Straightforward deploy and user experience | 👩‍🎓 1. Require internet access <br> 👩‍🏫 2. Free tier has a limit of 80 hours/month. |
+|R packages 📦|[CursoRTarefas](https://github.com/curso-r/CursoRTarefas) | 👩‍🎓1. Don't require internet access. <br> 👩‍🏫 2. Free. |  👩‍🏫 1. Learners must install an package from a remote source (e.g. github). <br> 3. **Documents are prone to encoding issues!** |
 
----
-## How can the students access the tutorials? 👩‍🏫
 
-|Method|Example|Pros|Cons|
-|---------|---------|---------|-------------|
-|R packages 📦|[CursoRTarefas](https://github.com/curso-r/CursoRTarefas) | 👩‍🎓1. Don't require internet access. <br> 👩‍🏫 2. Free. | 👩‍🎓1. Require an installation of R and RStudio; <br> 👩‍🏫 2. Learners must install an package from a remote source (e.g. github). <br> 3. **Documents are prone to encoding issues!** |
 
 
 
@@ -332,30 +319,12 @@ We also faced some challenges that we are still working on improving:
 
 
 ---
-
-## Strengths 
-
- 
-1. We have data that can help identifying the misunderstanding gaps that should be clarified or filled through revision of contents.
- 
-2. Although we spend some time before the course adapting the exercises from .R files to structured exercises in a learnr interactive tutorial, during the course we did not spend time correcting and giving feedback on the homework for each student. 
-
-3. After each course, we improved the tutorial, and could re-use in the next iteration of the course.
- 
-4. We chose to create hints in the exercises, but did not show the solutions within the learnr tutorial. The students reacted positively to the possibility to see the hints, which were not possible to create when we used the .R files for the homework.
-
-
-
-
----
 ## Challenges
 
-- A learnr interactive document is not the same environment in which usual R programming happens, such as an IDE like RStudio or VSCode, and some learners might have a hard time understanding how they are related. Learners who can correctly answer homework assignments might not realize how to apply their knowledge on longer codes, such as R scripts.
+- Learnr interactive document is not the same environment in which usual R programming happens. Learners might not realize how to apply their knowledge on longer codes.
 
----
-## Challenges
  
-The packages **learnr**, **gradethis** and **learnrhash** were designed in English; therefore, all the messages, buttons, and other words are written in English. 
+- The packages **learnr**, **gradethis** and **learnrhash** were designed in English; therefore, all the messages, buttons, and other words are written in English. 
 
 ### learnr
 
@@ -370,10 +339,14 @@ The packages **learnr**, **gradethis** and **learnrhash** were designed in Engli
 
 - Still 100% in English
 
-- Considering that this course is taught in Brazilian Portuguese, and the package **gradethis** is still only available in English, we made a fork of the package and translated the internal messages into Brazilian Portuguese, called {gradethisBR}.
+- We made a fork of the package and translated the internal messages into Brazilian Portuguese, called {gradethisBR}.
 
 - Gradethis translation to PT-BR: https://github.com/curso-r/gradethis (by [Fernando Corrêa](https://github.com/azeloc))
   
+- {gradethisBR} is a temporary package and will be better if this feature is native in {gradethis} in the future. 
+
+
+
   
 ### learnrhash
 
@@ -387,9 +360,7 @@ The packages **learnr**, **gradethis** and **learnrhash** were designed in Engli
 
 - We are aware of the remaining work to do in order to improve the support of additional languages in the learnr tutorials that use this approach. However, this is important to facilitate the use of learnr by more non-English speakers in forthcoming courses and classes. 
 
-- We understand that {gradethisBR} is a temporary package and will be better if this feature is native in {gradethis}. 
-
-- Thus, we want to help improving {gradethis} to support additional languages as well, such as Brazilian Portuguese, Spanish and others.
+- We want to help improving {learnr}/{gradethis}/{learnrhash} to support additional languages as well, such as Brazilian Portuguese, Spanish and others.
 
 ---
 
@@ -405,6 +376,11 @@ knitr::include_graphics("img/tweet-yani-traducao.png")
 
 
 ---
+class: middle
+
+
+
+.pull-left[
 ## Acknowledgments
 
 - [Curso-R](https://curso-r.com/)
@@ -416,22 +392,11 @@ knitr::include_graphics("img/tweet-yani-traducao.png")
 - [Yanina Bellini Saibene](https://twitter.com/yabellini)
 
 - [Colin Rundel](https://twitter.com/rundel)
-
-
-
----
-class: center
-
-## Thanks :)
-
-.pull-left[
-```{r echo=FALSE, fig.align='center', out.width="100%"}
-knitr::include_graphics("https://media.giphy.com/media/M9NbzZjAcxq9jS9LZJ/giphy.gif")
-```
-
 ]
 
 .pull-right[
+
+## Thanks :)
 
 Slides created via the R packages:
 
@@ -456,17 +421,15 @@ Twitter: [@BeaMilz](https://twitter.com/BeaMilz), [@Azeloc](https://twitter.com/
 ```
 
 ---
+class: references
+
+
 
 ## References
+
+
 
 ```{r refs, echo=FALSE, results="asis"}
-PrintBibliography(myBib, start = 1, end = 4)
+PrintBibliography(myBib, start = 1, end = 6)
 ```
 
-
----
-## References
-
-```{r refs2, echo=FALSE, results="asis", message = FALSE, error = FALSE, warning=FALSE}
-PrintBibliography(myBib, start = 5, end = 6)
-```

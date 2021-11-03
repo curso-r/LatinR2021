@@ -176,3 +176,7 @@ a, a > code {
 .destaque {
   background: #fffb00;
 }
+
+.references{
+  font-size: 22px !important;
+}
