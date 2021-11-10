@@ -71,6 +71,28 @@ Teacher at [Curso-R](https://curso-r.com/).
 
 ]
 
+
+
+```{r metathis, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_name("github-repo" = "curso-r/LatinR2021") %>% 
+  meta_social(
+    title = "Scaling feedback using learnr and gradethis in a introductory R course",
+    description = paste(
+      "Presentation made at LatinR 2021"),
+    url = "https://curso-r.github.io/LatinR2021/",
+    image = "https://curso-r.github.io/LatinR2021/img/share-card.png",
+    image_alt = paste(
+      "First slide of the presentation"
+    ),
+    og_type = "website",
+    og_author = "Beatriz Milz",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@beamilz"
+  )
+```
+
 ---
 
 .pull-left[
